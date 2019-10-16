@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>catalogoveiculos</groupId>
+  <artifactId>veiculos</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>catalogoveiculos</name>
+  <description>projeto de demonstração </description>
+  
+  <!-- repositórios para busca de dependências -->
+  <repositories>
+  	<repository>
+  		<id>jvnet-nexus-releases</id>
+  		<name>jvnet-nexus-releases</name>
+  		<url>https://maven.java.net/content/repositories/releases</url>
+  	</repository>
+  </repositories>
+  
+  <dependencies>
+  	<!-- dependências para java server faces -->
+  	<dependency>
+  		<groupId>javax</groupId>
+  		<artifactId>javaee-api</artifactId>
+  		<version>7.0</version>
+  		<scope>provided</scope>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.glassfish</groupId>
+  		<artifactId>javax.faces</artifactId>
+  		<version>2.2.10</version>
+  	</dependency>
+  	 <!-- fim dependências para java server faces -->	
+  	 
+  	 <!-- outras dependências do projeto -->
+  	 <dependency><!-- hibernate -->
+  	 	<groupId>org.hibernate</groupId>
+  	 	<artifactId>hibernate-core</artifactId>
+  	 	<version>5.4.1.Final</version>
+  	 </dependency>
+  	
+  	 <dependency><!-- mysql -->
+  	 	<groupId>mysql</groupId>
+  	 	<artifactId>mysql-connector-java</artifactId>
+  	 	<version>8.0.15</version>
+  	 </dependency>
+  	 
+  	 <!-- https://mvnrepository.com/artifact/org.webjars/materializecss -->
+	<dependency>
+	    <groupId>org.webjars</groupId>
+	    <artifactId>materializecss</artifactId>
+	    <version>1.0.0-rc.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.webjars/font-awesome -->
+	<dependency>
+	    <groupId>org.webjars</groupId>
+	    <artifactId>font-awesome</artifactId>
+	    <version>5.8.1</version>
+	</dependency>	
+
+	<!-- junit adicionado 16 outubro 2019 -->
+	<dependency>
+	    <groupId>org.junit.jupiter</groupId>
+	    <artifactId>junit-jupiter-api</artifactId>
+	    <version>5.5.2</version>
+	    <scope>test</scope>
+	</dependency>
+	
+
+	  	  	 
+  </dependencies>
+  
+  <!-- configurações de construção -->
+  <build>
+  	<plugins>
+  		<!-- plugin para java 8 -->	
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>3.1</version>
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  			</configuration>
+  		</plugin>
+  		<!-- plugin para codificação utf-8 (acentuação) -->	
+	  	<plugin>
+	  		<artifactId>maven-resources-plugin</artifactId>
+	 		<version>2.7</version>
+	  		<configuration>
+	  			<encoding>UTF-8</encoding>
+	  		</configuration>
+	  	</plugin>
+  	</plugins>
+  </build>
+  
+</project>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE html 
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	  
+<h:head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="viewport" content="width=device-width,
+ initial-scale=1.0, shrink-to-fit=no"/>
+ 
+ <!-- css e javascript aqui !-->
+<h:outputStylesheet library="webjars" name="/materializecss/1.0.0-rc.1/css/materialize.css"/>
+<h:outputStylesheet library="webjars" name="/font-awesome/5.8.1/css/all-jsf.css"/>
+<h:outputStylesheet library="node_modules" name="/animate.css/animate.css"/>
+<h:outputScript library="node_modules" name="/jquery/dist/jquery.min.js"/>
+<h:outputScript library="node_modules" name="/jquery-mask-plugin/dist/jquery.mask.min.js"/>
+<h:outputScript library="js" name="mask.js"/>
+<style>
+	.rounded{
+		border-radius: 24px;
+		height: 60px;
+	}
+	.title{
+		padding: 5px;
+	}
+</style>
+<title>Novo veiculo</title>
+
+</h:head>
+	
+<h:body styleClass="blue-grey lighten-5">
+	<div style="width:80%; margin-left:auto;margin-right:auto">
+		<div class="container z-depth-5 teal rounded">
+		<div class="nav-wrapper">
+			<h3 class="white-text title">
+				<i class="fas fa-car animated swing"></i>				
+				Cadastrar novo veículo				
+			</h3>			
+		</div>
+		</div>
+		<br/>
+		<div class='col s3 container'>
+			<h:form>
+				<h:messages class="red lighten-2 white-text" showDetail="true" showSummary="true"/>
+				
+				<h:outputLabel for="frm_marca" value="Marca"/>
+				<h:inputText styleClass="input-field marca" id="frm_marca"
+				p:placeholder="marca"  value="#{veiculoBEAN.veiculo.marca_veiculo}"
+				required="true" requiredMessage="Informe a marca"/>
+				
+				<h:outputLabel for="frm_modelo" value="modelo"/>
+				<h:inputText styleClass="input-field" id="frm_modelo"
+				p:placeholder="modelo" value="#{veiculoBEAN.veiculo.modelo_veiculo}"
+				required="true" requiredMessage="Informe o modelo"/>
+				
+				<h:outputLabel for="frm_tipo" value="tipo"/>
+				<h:inputText  class="select input-field" id="frm_tipo"
+				 value="#{veiculoBEAN.veiculo.tipo_veiculo}" p:placeholder="tipo"
+				 required="true" requiredMessage="Informe o tipo (carro, moto, caminhão...)"/>				 			
+								
+				<h:outputLabel for="frm_ano" value="Data-fabricação"/>
+				<h:inputText styleClass="input-field data datepicker" id="frm_ano"
+				p:placeholder="ano" value="#{veiculoBEAN.veiculo.fabricacao_veiculo}"
+				required="true" requiredMessage="Informe ano fabricação"/>
+				
+				<h:outputLabel for="frm_preco" value="Preço"/>
+				<h:inputText styleClass="input-field monetario" id="frm_preco"
+				p:placeholder="preço" value="#{veiculoBEAN.veiculo.preco}"
+				required="true" requiredMessage="Informe preço"/>
+				<br/><br/>
+				
+				<h:commandLink 
+				styleClass="btn z-depth-5 waves-effect waves-light" value="Salvar"
+				action="#{veiculoBEAN.salvar}">
+				&#160;<i class="fas fa-save"></i>
+				</h:commandLink>		
+				&#160;
+				<h:commandLink 
+				styleClass="btn z-depth-5 waves-effect waves-light" value="Limpar"
+				action="#{veiculoBEAN.limpar}">
+				&#160;<i class="fas fa-eraser"></i>
+				</h:commandLink>
+				&#160;&#160;
+				<a href="lista.jsf">listar veículos cadastrados&#160;
+				<i class="fas fa-list-ol fa-lg animated infinite tada delay-2s"></i>
+				</a>
+				<h:inputHidden value="#{veiculoBEAN.veiculo.id_veiculo}"></h:inputHidden>				
+			</h:form>
+		</div>
+	</div>
+</h:body>
+</html>
